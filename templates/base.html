@@ -7,7 +7,11 @@
     <meta charset="UTF-8">
     <title>{% block title %}MoneyK{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% tailwind_css %}
+    {% if DEBUG %}
+        {% tailwind_css %}
+    {% else %}
+        <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+    {% endif %}
     <style>
       /* Minimal global Django form styles */
       form input[type="text"],
