@@ -12,6 +12,20 @@
     {% else %}
         <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
     {% endif %}
+    <!-- jQuery CDN for production compatibility -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- CSRF Token for AJAX requests -->
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <script>
+        // Make CSRF token available globally for AJAX requests
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", $('meta[name=csrf-token]').attr('content'));
+                }
+            }
+        });
+    </script>
     <style>
       /* Minimal global Django form styles */
       form input[type="text"],
