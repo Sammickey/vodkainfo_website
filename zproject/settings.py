@@ -79,6 +79,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -149,6 +150,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Static files directories
+STATICFILES_DIRS = [
+    BASE_DIR / 'theme' / 'static',
+]
 
 # WhiteNoise configuration
 STATIC_ROOT = BASE_DIR / 'staticfiles'
