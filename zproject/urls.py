@@ -6,4 +6,5 @@ urlpatterns = [
     path('api-auth/', include('users.urls')),
     path('', include('dashboard.urls')),
     path('', include('oxapaycallback.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
